@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub9-6l-MiL">
+                                <rect key="frame" x="160.5" y="537" width="54.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="播放"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.23944409973871483" green="0.4722881217277487" blue="0.074583574326006138" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBa-4E-UdA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10q-Fb-QKj">
+                                <rect key="frame" x="96" y="537" width="54.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="上一首"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="preSongBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q4W-Rr-saZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sat-0f-Qo3">
+                                <rect key="frame" x="225" y="537" width="54" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="下一首"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextSongBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vhP-f0-aJW"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nPx-Na-sFO">
+                                <rect key="frame" x="74" y="497" width="227" height="31"/>
+                                <connections>
+                                    <action selector="controlSliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="dPe-6v-Dhp"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CBa-md-nnn">
+                                <rect key="frame" x="208" y="447" width="93" height="31"/>
+                                <connections>
+                                    <action selector="volumeControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="AdA-r5-6Q8"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Sat-0f-Qo3" firstAttribute="width" secondItem="Ub9-6l-MiL" secondAttribute="width" id="0Cj-wR-vdf"/>
+                            <constraint firstItem="nPx-Na-sFO" firstAttribute="top" secondItem="CBa-md-nnn" secondAttribute="bottom" constant="20" id="4Wm-Kx-AQN"/>
+                            <constraint firstItem="CBa-md-nnn" firstAttribute="trailing" secondItem="nPx-Na-sFO" secondAttribute="trailing" id="7uB-YA-Wnw"/>
+                            <constraint firstItem="Ub9-6l-MiL" firstAttribute="width" secondItem="10q-Fb-QKj" secondAttribute="width" id="Khy-jk-ayV"/>
+                            <constraint firstItem="Sat-0f-Qo3" firstAttribute="top" secondItem="nPx-Na-sFO" secondAttribute="bottom" constant="10" id="L4h-rN-eoZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sat-0f-Qo3" secondAttribute="trailing" constant="80" id="OH4-6t-ZS1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="10q-Fb-QKj" secondAttribute="bottom" constant="100" id="PqT-mE-Sks"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nPx-Na-sFO" secondAttribute="trailing" constant="60" id="VHY-y4-mrk"/>
+                            <constraint firstItem="Sat-0f-Qo3" firstAttribute="leading" secondItem="Ub9-6l-MiL" secondAttribute="trailing" constant="10" id="dAv-Xh-D2V"/>
+                            <constraint firstItem="10q-Fb-QKj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="h2I-zq-gXK"/>
+                            <constraint firstItem="CBa-md-nnn" firstAttribute="width" secondItem="nPx-Na-sFO" secondAttribute="width" multiplier="0.4" id="p4S-u4-Cdb"/>
+                            <constraint firstItem="Sat-0f-Qo3" firstAttribute="bottom" secondItem="Ub9-6l-MiL" secondAttribute="bottom" id="q2M-Av-BoC"/>
+                            <constraint firstItem="Ub9-6l-MiL" firstAttribute="bottom" secondItem="10q-Fb-QKj" secondAttribute="bottom" id="q2k-2E-JE1"/>
+                            <constraint firstItem="nPx-Na-sFO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="vBw-oJ-AVH"/>
+                            <constraint firstItem="Ub9-6l-MiL" firstAttribute="leading" secondItem="10q-Fb-QKj" secondAttribute="trailing" constant="10" id="x62-oD-aFp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="controlSlider" destination="nPx-Na-sFO" id="BYN-4k-hKu"/>
+                        <outlet property="nextSongBtn" destination="Sat-0f-Qo3" id="VLr-Op-0Hd"/>
+                        <outlet property="palyBtn" destination="Ub9-6l-MiL" id="CLY-3q-zId"/>
+                        <outlet property="preSongBtn" destination="10q-Fb-QKj" id="1hv-pH-KGl"/>
+                        <outlet property="volumeSlider" destination="CBa-md-nnn" id="gv3-I3-chX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
